@@ -1,0 +1,102 @@
+.about-me {
+  display: flex;
+  flex-direction: column;
+  margin: 110px 70px 100px;
+}
+
+.about-me__line {
+  border: 1px solid rgba(218, 218, 218, 1);
+}
+
+.about-me__line_links {
+  border-color: rgba(66, 66, 66, 1);
+}
+
+.about-me__title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: white;
+  margin: 0;
+  margin-bottom: 23px;
+}
+
+.about-me__info {
+  margin-top: 66px;
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-areas:
+    "title photo"
+    "subtitle photo"
+    "text photo"
+    "link photo";
+  justify-content: space-between;
+}
+
+.about-me__info-title {
+  max-width: 600px;
+  grid-area: title;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+  color: white;
+  margin: 0;
+  margin-bottom: 18px;
+}
+
+.about-me__info-subtitle {
+  max-width: 600px;
+  grid-area: subtitle;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
+  /* identical to box height, or 111% */
+  color: white;
+  mix-blend-mode: normal;
+  margin: 0;
+  margin-bottom: 26px;
+}
+
+.about-me__info-text {
+  max-width: 600px;
+  grid-area: text;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  /* or 157% */
+  color: white;
+  mix-blend-mode: normal;
+  margin: 0;
+  margin-bottom: 99px;
+}
+
+.about-me__info-link {
+  max-width: 600px;
+  grid-area: link;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  color: white;
+  text-decoration: none;
+}
+
+.about-me__photo {
+  grid-area: photo;
+  width: 270px;
+  height: 327px;
+  border-radius: 10px;
+  object-fit: cover;
+}

@@ -1,0 +1,39 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found__title {
+  margin: 0;
+  margin-top: 246px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 169px;
+  text-align: center;
+}
+
+.not-found__subtitle {
+  margin: 0;
+  margin-top: 5px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
+
+.not-found__link {
+  margin: 0;
+  margin-top: 184px;
+  cursor: pointer;
+  color: rgba(66, 133, 244, 1);
+  text-decoration: none;
+  align-self: center;
+  margin-bottom: 60px;
+
+}
