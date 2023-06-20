@@ -1,0 +1,123 @@
+.forma {
+  display: flex;
+  flex-direction: column;
+  margin: 70px auto;
+}
+
+.forma__logo {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 40px;
+}
+
+.forma__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.forma__title {
+  margin: 0;
+  margin-bottom: 40px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+  color: white;
+}
+
+.forma__input-name {
+  margin: 0;
+  margin-bottom: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: rgba(139, 139, 139, 1);
+}
+
+
+.forma__form-input {
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 15px;
+  width: calc(396px - 15*2);
+  background: rgba(47, 47, 47, 1);
+  border-radius: 8px;
+  border: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  /* identical to box height */
+  color: white;
+}
+
+.forma__button {
+  margin-top: 69px;
+  background: rgba(66, 133, 244, 1);
+  border-radius: 3px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  text-align: center;
+  color: white;
+  width: 396px;
+  height: 45px;
+  border: none;
+  cursor: pointer;
+}
+
+.forma__error {
+  display: block;
+  height: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: rgba(238, 52, 101, 1);
+  visibility: hidden;
+}
+
+.forma__error_visible {
+  visibility: visible;
+}
+
+.forma__question {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.forma__link {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  text-align: center;
+  color: rgba(66, 133, 244, 1);
+  text-decoration: none;
+}
+
+.forma__text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  text-align: center;
+  color: rgba(139, 139, 139, 1);
+}
