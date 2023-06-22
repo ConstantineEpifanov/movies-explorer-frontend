@@ -5,13 +5,9 @@
   padding: 100px 70px;
 }
 
-.techs__line {
-  border: 1px solid rgba(218, 218, 218, 1);
-  margin-bottom: 90px;
-}
-
 .techs__title {
   margin: 0;
+
   margin-bottom: 23px;
   font-family: 'Inter';
   font-style: normal;
@@ -23,8 +19,7 @@
 }
 
 .techs__list-title {
-  margin: 0;
-  margin-bottom: 26px;
+  margin: 90px 0 26px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;

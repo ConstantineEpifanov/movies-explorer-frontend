@@ -1,5 +1,6 @@
 .page {
   min-width: 320px;
+  max-width: 1280px;
   background-color: rgba(32, 32, 32, 1);
   color: rgba(255, 255, 255, 1);
   font-family: 'Inter', Arial, sans-serif;
@@ -14,4 +15,23 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+}
+
+.link-hover:hover {
+  opacity: .6;
+  transition: .3s ease;
+}
+
+.styled-focus {
+  outline-color: rgba(61, 220, 132, 1);
+}
+
+.line {
+  background-color: rgba(66, 66, 66, 1);
+  width: 100%;
+  min-height: 1px;
+}
+
+.line_main {
+  background-color: rgba(218, 218, 218, 1);
 }

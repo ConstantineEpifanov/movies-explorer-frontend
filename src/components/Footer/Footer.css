@@ -1,11 +1,12 @@
 .footer {
   display: flex;
   flex-direction: column;
-  margin: 79px 70px 20px;
+  padding: 79px 70px 20px;
 }
 
 .footer__title {
   margin: 0;
+  margin-bottom: 20px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
@@ -15,12 +16,8 @@
   color: #8B8B8B;
 }
 
-.footer__line {
-  margin: 20px 0;
-  border: 1px solid rgba(66, 66, 66, 1);
-}
-
 .footer__container {
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }

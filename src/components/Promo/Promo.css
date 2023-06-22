@@ -38,11 +38,10 @@
   opacity: 0.5;
 }
 
-.promo__button {
+.promo__anchor-link {
   margin-top: 146px;
   max-width: 129px;
   max-height: 36px;
-  box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, .6);
   border-radius: 3px;
   font-family: 'Inter';
@@ -53,6 +52,10 @@
   color: white;
   padding: 9px 19px;
   background-color: transparent;
+  text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .promo__logo {

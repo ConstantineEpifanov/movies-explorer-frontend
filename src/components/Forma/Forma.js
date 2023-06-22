@@ -20,7 +20,7 @@ function Form( {welcomeText, submitButtonText, questionText, linkText, link, chi
           name="email"
           type="email"
           placeholder="e@mail.ee"
-          className="forma__form-input"
+          className="forma__form-input styled-focus"
           required
         />
         <span id="forma__error" className="forma__error"></span>
@@ -30,7 +30,7 @@ function Form( {welcomeText, submitButtonText, questionText, linkText, link, chi
           name="password"
           type="password"
           placeholder="СекретныйПароль"
-          className="forma__form-input"
+          className="forma__form-input styled-focus"
           required
         />
         <span

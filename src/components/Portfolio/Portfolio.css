@@ -1,7 +1,7 @@
 .portfolio {
   display: flex;
   flex-direction: column;
-  margin: 0 70px 125px;
+  padding: 0 70px 125px;
 }
 
 .portfolio__title {
@@ -54,8 +54,4 @@
   letter-spacing: -0.04em;
   color: white;
   margin: 0;
-}
-
-.portfolio__line {
-  border: 1px solid rgba(66, 66, 66, 1);
 }

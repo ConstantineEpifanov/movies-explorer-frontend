@@ -16,7 +16,7 @@ function Register() {
         name="name"
         type="name"
         placeholder="Жак"
-        className="forma__form-input"
+        className="forma__form-input styled-focus"
         required
       />
     </Forma>

@@ -1,4 +1,7 @@
-import promo__logo from "../../../images/promo__logo.svg";
+
+import promo__logo from "../../images/promo__logo.svg";
+import { HashLink } from "react-router-hash-link";
+
 
 function Promo() {
   return (
@@ -10,7 +13,7 @@ function Promo() {
         <p className="promo__subtitle">
           Листайте ниже, чтобы узнать больше про этот проект и его создателя.
         </p>
-        <button className="promo__button">Узнать больше</button>
+        <HashLink to="#aboutP" className="promo__anchor-link">Узнать больше</HashLink>
       </div>
       <img
         className="promo__logo"

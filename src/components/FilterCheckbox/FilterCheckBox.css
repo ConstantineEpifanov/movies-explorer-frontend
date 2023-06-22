@@ -1,0 +1,41 @@
+.filter-checkbox {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  margin: 0;
+  padding: 15px 19px;
+
+}
+
+.filter-checkbox__label {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  margin-right: 10px;
+}
+
+.filter-checkbox__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.filter-checkbox__input+.filter-checkbox__visible {
+  display: block;
+  width: 36px;
+  height: 20px;
+  cursor: pointer;
+  background-image: url(../../images/tumbler-off.svg);
+}
+
+.filter-checkbox__input:checked+.filter-checkbox__visible {
+  background-image: url(../../images/tumbler-on.svg);
+}
