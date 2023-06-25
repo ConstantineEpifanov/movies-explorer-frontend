@@ -8,22 +8,22 @@
 .not-found__title {
   margin: 0;
   margin-top: 246px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 140px;
-  line-height: 169px;
+  line-height: 1.2;
   text-align: center;
 }
 
 .not-found__subtitle {
   margin: 0;
   margin-top: 5px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 1.2;
   text-align: center;
 }
 
@@ -35,5 +35,29 @@
   text-decoration: none;
   align-self: center;
   margin-bottom: 60px;
+}
 
+
+@media screen and (max-width: 950px) {
+  .not-found__title {
+
+    margin-top: 408px;
+  }
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .not-found__title {
+
+    margin-top: 329px;
+  }
+
+  .not-found__subtitle {
+    margin-top: 10px;
+  }
+
+  .not-found__link {
+    margin-top: 284px;
+  }
 }

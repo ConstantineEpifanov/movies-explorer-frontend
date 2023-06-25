@@ -10,7 +10,7 @@ function Navigation() {
         Регистрация
       </Link>
       <Link
-        className="navigation__link navigation__button link-hover"
+        className="navigation__button link-hover"
         to="/sign-in"
       >
         Войти
@@ -43,13 +43,49 @@ function Navigation() {
         </NavLink>
       </div>
       <Link
-        className="navigation__link navigation__button navigation__button_logged link-hover"
+        className="navigation__button navigation__button_logged link-hover"
         to="/profile"
       >
         Аккаунт
       </Link>
     </nav>
   );
+
+  // const loggenInPageBurger = (
+  //   <nav className="navigation navigation_burger">
+  //     <div className="navigation__container">
+  //       <Link className="navigation__link link-hover" to="/">
+  //         Главная
+  //       </Link>
+  //       <NavLink
+  //         className={({ isActive }) =>
+  //           `navigation__link ${
+  //             isActive ? "navigation__link_active" : ""
+  //           } link-hover`
+  //         }
+  //         to="/movies"
+  //       >
+  //         Фильмы
+  //       </NavLink>
+  //       <NavLink
+  //         className={({ isActive }) =>
+  //           `navigation__link ${
+  //             isActive ? "navigation__link_active" : ""
+  //           } link-hover`
+  //         }
+  //         to="/saved-movies"
+  //       >
+  //         Сохранённые фильмы
+  //       </NavLink>
+  //     </div>
+  //     <Link
+  //       className="navigation__button navigation__button_logged link-hover"
+  //       to="/profile"
+  //     >
+  //       Аккаунт
+  //     </Link>
+  //   </nav>
+  // );
 
   return location.pathname === "/" ? mainPage : loggenInPage;
 }

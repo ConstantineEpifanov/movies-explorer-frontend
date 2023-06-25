@@ -19,6 +19,7 @@ function Register() {
         className="forma__form-input styled-focus"
         required
       />
+      <span id="forma__error" className="forma__error"></span>
     </Forma>
   );
 }

@@ -5,11 +5,11 @@
 
 .profile__title {
   margin: 74px auto 0;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
-  line-height: 29px;
+  line-height: 1.2;
   /* identical to box height */
   text-align: center;
   color: white;
@@ -20,9 +20,14 @@
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  margin: 123px auto 220px;
-  padding: 0;
+  margin: 113px auto 210px;
+  padding: 10px;
   gap: 16px;
+  border-radius: 6px;
+}
+
+.profile__list_active {
+  background-color: rgba(61, 220, 132, .8);
 }
 
 .profile__item {
@@ -34,22 +39,22 @@
 
 .profile__item-name {
   margin: 0;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
-  line-height: 13px;
+  line-height: 1.2;
   /* identical to box height */
   color: #FFFFFF;
 }
 
 .profile__item-text {
   margin: 0;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 11px;
-  line-height: 13px;
+  line-height: 1.2;
   /* identical to box height */
   text-align: right;
   color: #FFFFFF;
@@ -59,11 +64,12 @@
 
 .profile__button {
   margin: 0 auto 16px;
-  font-family: 'Inter';
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 1.2;
   /* identical to box height */
   display: flex;
   align-items: center;
@@ -75,7 +81,41 @@
   text-decoration: none;
 }
 
+.profile__button_active {
+  border-radius: 30px;
+  background-color: rgba(61, 220, 132, 1);
+  padding: 0 15px;
+}
+
 .profile__button_warning-color {
   font-weight: 500;
   color: rgba(238, 52, 101, 1);
+}
+
+
+
+@media screen and (max-width: 950px) {
+
+  .profile__title {
+    margin-top: 236px;
+  }
+
+  .profile__list {
+    margin-top: 96px;
+    margin-bottom: 210px;
+  }
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .profile__title {
+    margin-top: 70px;
+  }
+
+  .profile__list {
+    margin-top: 80px;
+    margin-bottom: 379px;
+    padding: 0 30px;
+  }
 }

@@ -1,7 +1,15 @@
 .forma {
   display: flex;
   flex-direction: column;
-  margin: 70px auto;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.forma__form {
+  margin: 70px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .forma__logo {
@@ -10,19 +18,14 @@
   margin-bottom: 40px;
 }
 
-.forma__form {
-  display: flex;
-  flex-direction: column;
-}
-
 .forma__title {
   margin: 0;
   margin-bottom: 40px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
-  line-height: 29px;
+  line-height: 1.2;
   /* identical to box height */
   color: white;
 }
@@ -30,11 +33,11 @@
 .forma__input-name {
   margin: 0;
   margin-bottom: 10px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
-  line-height: 12px;
+  line-height: 1.2;
   color: rgba(139, 139, 139, 1);
 }
 
@@ -48,24 +51,25 @@
   background: rgba(47, 47, 47, 1);
   border-radius: 8px;
   border: none;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 1.23;
   /* identical to box height */
   color: white;
 }
 
 .forma__button {
-  margin-top: 69px;
+  margin: 0;
+  padding: 0;
   background: rgba(66, 133, 244, 1);
   border-radius: 3px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.2;
   /* identical to box height */
   text-align: center;
   color: white;
@@ -78,11 +82,11 @@
 .forma__error {
   display: block;
   height: 10px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
-  line-height: 12px;
+  line-height: 1.2;
   color: rgba(238, 52, 101, 1);
   visibility: hidden;
 }
@@ -92,19 +96,21 @@
 }
 
 .forma__question {
+  margin-top: 16px;
   display: flex;
   flex-direction: row;
   gap: 6px;
   align-items: baseline;
   justify-content: center;
+  flex-wrap: nowrap;
 }
 
 .forma__link {
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.2;
   /* identical to box height */
   text-align: center;
   color: rgba(66, 133, 244, 1);
@@ -112,12 +118,58 @@
 }
 
 .forma__text {
-  font-family: 'Inter';
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.2;
   /* identical to box height */
   text-align: center;
   color: rgba(139, 139, 139, 1);
+}
+
+.forma__submit-container {
+  margin-top: 69px;
+}
+
+.forma__submit-container_signin {
+  margin-top: 157px;
+}
+
+@media screen and (max-width: 950px) {
+
+  .forma__form {
+    margin-top: 232px;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .forma__form {
+    max-width: 260px;
+  }
+
+  .forma__button {
+    width: 260px;
+  }
+
+  .forma__question {
+    margin-top: 14px;
+    gap: 7px;
+    font-size: 12px;
+  }
+
+  .forma__link {
+    font-size: 12px;
+  }
+
+  .forma__text {
+    font-size: 12px;
+  }
+
+  .forma__button {
+    font-size: 12px;
+  }
 }

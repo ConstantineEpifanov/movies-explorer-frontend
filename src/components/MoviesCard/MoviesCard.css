@@ -9,6 +9,14 @@
   box-sizing: border-box;
 }
 
+.card__img {
+  width: 364px;
+  height: 203px;
+  object-position: center;
+  object-fit: contain;
+  box-sizing: border-box;
+}
+
 .card__container {
   padding: 16px;
   display: flex;
@@ -25,7 +33,7 @@
   white-space: nowrap;
   overflow: hidden;
   font-size: 13px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   max-width: 290px;
@@ -43,17 +51,22 @@
   background-position: center;
   background-size: contain;
   box-sizing: content-box;
+  cursor: pointer;
 }
 
-.card__like-active {
+.card__like_active {
   background-image: url("../../images/like-active.svg");
 }
 
+.card__like_delete {
+  background-image: url("../../images/delete.svg");
+}
+
 .card__duration {
-  margin: 0 16px 16px;;
+  margin: 0 16px 16px;
   padding: 0;
   font-size: 11px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   color: rgba(139, 139, 139, 1);

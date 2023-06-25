@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Profile() {
+  const [isDisabled, setDisabled] = useState(true);
+
   return (
     <section className="profile">
       <h2 className="profile__title">Привет, Виталий!</h2>
       <form>
-        <ul className="profile__list">
+        <ul
+          className={`profile__list ${
+            isDisabled ? "" : "profile__list_active"
+          }`}
+        >
           <li className="profile__item">
             <label className="profile__item-name" htmlFor="name">
               Имя
@@ -14,10 +21,9 @@ function Profile() {
               className="profile__item-text"
               type="text"
               id="name"
-              value="Виталий"
               placeholder="Имя"
               required
-              disabled
+              disabled={isDisabled}
             />
           </li>
           <div className="line"></div>
@@ -29,15 +35,21 @@ function Profile() {
               className="profile__item-text"
               type="email"
               id="email"
-              value="pochta@yandex.ru"
               placeholder="e@mail.ee"
               required
-              disabled
+              disabled={isDisabled}
             />
           </li>
         </ul>
       </form>
-      <button className="profile__button link-hover">Редактировать</button>
+      <button
+        className={`profile__button ${
+          isDisabled ? "" : "profile__button_active"
+        } link-hover`}
+        onClick={() => setDisabled((prevState) => !prevState)}
+      >
+        {isDisabled ? "Редактировать" : "Сохранить"}
+      </button>
       <Link
         to="/"
         className="profile__button profile__button_warning-color link-hover"

@@ -5,11 +5,11 @@
 }
 
 .about-me__title {
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: -0.04em;
   color: white;
   margin: 0;
@@ -31,7 +31,7 @@
 .about-me__info-title {
   max-width: 600px;
   grid-area: title;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
@@ -45,7 +45,7 @@
 .about-me__info-subtitle {
   max-width: 600px;
   grid-area: subtitle;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -60,11 +60,11 @@
 .about-me__info-text {
   max-width: 600px;
   grid-area: text;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 22px;
+  line-height: 1.57;
   /* or 157% */
   color: white;
   mix-blend-mode: normal;
@@ -75,11 +75,11 @@
 .about-me__info-link {
   max-width: 600px;
   grid-area: link;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.2;
   /* identical to box height */
   color: white;
   text-decoration: none;

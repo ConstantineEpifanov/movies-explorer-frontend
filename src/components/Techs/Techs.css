@@ -9,18 +9,18 @@
   margin: 0;
 
   margin-bottom: 23px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: -0.04em;
   color: white;
 }
 
 .techs__list-title {
   margin: 90px 0 26px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
@@ -35,7 +35,7 @@
   max-width: 460px;
   margin: 0;
   margin-bottom: 100px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -60,11 +60,11 @@
   padding: 0;
   width: 90px;
   height: 60px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1;
+  line-height: 1.2;
   display: flex;
   justify-content: center;
   align-items: center;
