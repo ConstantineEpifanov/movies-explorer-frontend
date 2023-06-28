@@ -4,6 +4,7 @@
   border: none;
   margin: 0;
   padding: 15px 19px;
+  padding-left: 0;
 }
 
 .filter-checkbox__label {
@@ -74,9 +75,17 @@
   background-color: rgba(52, 52, 52, 1);
   transition: .4s;
   -webkit-transition: .4s;
-
 }
 
 .filter-checkbox__visible:before {
   border-radius: 50%;
+}
+
+
+
+
+@media screen and (max-width: 500px) {
+  .filter-checkbox__visible:before {
+    bottom: 6px;
+  }
 }

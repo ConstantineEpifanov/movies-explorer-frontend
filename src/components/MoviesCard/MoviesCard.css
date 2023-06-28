@@ -1,6 +1,4 @@
 .card {
-  max-width: 364px;
-  max-height: 281px;
   margin: 0;
   padding: 0;
   border-radius: 6px;
@@ -10,8 +8,7 @@
 }
 
 .card__img {
-  width: 364px;
-  height: 203px;
+  max-width: 100%;
   object-position: center;
   object-fit: contain;
   box-sizing: border-box;
@@ -70,4 +67,27 @@
   font-style: normal;
   font-weight: 400;
   color: rgba(139, 139, 139, 1);
+}
+
+
+
+@media screen and (max-width: 950px) {
+  .card__container {
+    padding: 14px;
+    gap: 6px;
+  }
+
+  .card__duration {
+    margin: 0 14px 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card__title {
+    font-size: 12px;
+  }
+
+  .card__duration {
+    font-size: 10px;
+  }
 }

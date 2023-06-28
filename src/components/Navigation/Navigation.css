@@ -25,6 +25,7 @@
   text-decoration: none;
   box-sizing: border-box;
   max-height: 32px;
+  white-space: nowrap;
 }
 
 .navigation__link_active {
@@ -50,15 +51,17 @@
 }
 
 .navigation__container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
   gap: 16px;
+
+  grid-template-columns: 1fr 1fr 12fr;
 }
 
 .navigation__button_logged {
   background-color: rgba(49, 49, 49, 1);
   border-radius: 20px;
   color: white;
+  justify-self: flex-end;
 }
 
 .navigation__link_movies {

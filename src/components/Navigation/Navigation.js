@@ -11,10 +11,16 @@ function Navigation() {
 
   const mainPage = (
     <nav className="navigation navigation_main">
-      <Link className="navigation__link navigation__link_main link-hover" to="/sign-up">
+      <Link
+        className="navigation__link navigation__link_main link-hover"
+        to="/sign-up"
+      >
         Регистрация
       </Link>
-      <Link className="navigation__button navigation__link_main link-hover" to="/sign-in">
+      <Link
+        className="navigation__button navigation__link_main link-hover"
+        to="/sign-in"
+      >
         Войти
       </Link>
     </nav>
@@ -35,14 +41,16 @@ function Navigation() {
         <span></span>
       </button>
       <div className="navigation__container">
-      <NavLink
+        <NavLink
           className={({ isActive }) =>
             `navigation__link navigation__link_movies${
               isActive ? "navigation__link_active" : ""
             } link-hover`
           }
           to="/"
-        >Главная</NavLink>
+        >
+          Главная
+        </NavLink>
         <NavLink
           className={({ isActive }) =>
             `navigation__link ${
