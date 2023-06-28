@@ -1,15 +1,17 @@
 .promo {
   background-color: rgba(7, 48, 66, 1);
   width: 100%;
-  display: flex;
+  display: grid;
   padding: 75px 70px;
   justify-content: space-between;
   box-sizing: border-box;
+  grid-template-areas: "container img";
 }
 
 .promo__container {
   display: flex;
   flex-direction: column;
+  grid-area: container;
 }
 
 .promo__title {
@@ -27,7 +29,6 @@
   margin: 0;
   margin-top: 36px;
   max-width: 310px;
-
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -61,4 +62,53 @@
 .promo__logo {
   width: 310px;
   height: 304px;
+  grid-area: img;
 }
+
+
+@media screen and (max-width: 950px) {
+  .promo {
+    grid-template-areas: "img"
+      "container";
+    justify-items: center;
+    padding: 140px 0 76px;
+    justify-content: center;
+  }
+
+  .promo__container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .promo__title {
+    text-align: center;
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .promo__logo {
+    margin-bottom: 48px;
+  }
+
+  .promo__subtitle {
+    margin-top: 22px;
+  }
+
+  .promo__anchor-link {
+    margin-top: 92px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .promo__logo {
+    width: 210px;
+    height: 206px;
+  }
+
+  .promo__title {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -1.2px;
+  }
+}
+

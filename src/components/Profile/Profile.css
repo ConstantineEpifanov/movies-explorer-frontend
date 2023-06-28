@@ -4,7 +4,7 @@
 }
 
 .profile__title {
-  margin: 74px auto 0;
+  margin: 10vh auto 0;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  margin: 113px auto 210px;
+  margin: 17vh auto 31vh;
   padding: 10px;
   gap: 16px;
   border-radius: 6px;
@@ -34,7 +34,13 @@
   display: flex;
   flex-direction: row;
   margin: 0;
+  padding-bottom: 16px;
   justify-content: space-between;
+  border-bottom: 1px solid rgba(66, 66, 66, 1);
+}
+
+.profile__item:last-of-type {
+  border: none;
 }
 
 .profile__item-name {
@@ -94,15 +100,17 @@
 
 
 
+
+
 @media screen and (max-width: 950px) {
 
   .profile__title {
-    margin-top: 236px;
+    margin-top: 23vh;
   }
 
   .profile__list {
-    margin-top: 96px;
-    margin-bottom: 210px;
+    margin-top: 9vh;
+    margin-bottom: 20vh;
   }
 }
 
@@ -110,12 +118,16 @@
 
 @media screen and (max-width: 600px) {
   .profile__title {
-    margin-top: 70px;
+    margin-top: 9vh;
   }
 
   .profile__list {
-    margin-top: 80px;
-    margin-bottom: 379px;
+    margin-top: 10vh;
+    margin-bottom: 46vh;
     padding: 0 30px;
+  }
+
+  .profile__button:last-child {
+    margin-bottom: 5vh;
   }
 }

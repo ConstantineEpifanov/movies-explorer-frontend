@@ -22,7 +22,7 @@ function Form({
         <Link to="/">
           <img src={logo} alt="Логотип $" className="forma__logo link-hover" />
         </Link>
-        <h2 className="forma__title">{welcomeText}</h2>
+        <h1 className="forma__title">{welcomeText}</h1>
         {children}
         <p className="forma__input-name">E-mail</p>
         <input
@@ -33,7 +33,7 @@ function Form({
           className="forma__form-input styled-focus"
           required
         />
-        <span id="forma__error" className="forma__error"></span>
+        <span className="forma__error"></span>
         <p className="forma__input-name">Пароль</p>
         <input
           id="password"
@@ -43,7 +43,7 @@ function Form({
           className="forma__form-input styled-focus"
           required
         />
-        <span id="forma__error" className="forma__error forma__error_visible">
+        <span className="forma__error forma__error_visible">
           Что-то пошло не так...
         </span>
         <div

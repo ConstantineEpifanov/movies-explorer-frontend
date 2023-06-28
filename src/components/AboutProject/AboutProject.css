@@ -6,7 +6,7 @@
 
 .about-project__title {
   margin: 0;
-  margin-bottom: 23px;
+  padding-bottom: 23px;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -14,17 +14,18 @@
   line-height: 1.2;
   letter-spacing: -0.04em;
   color: white;
+  border-bottom: 1px solid rgba(218, 218, 218, 1);
 }
 
 .about-project__list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(284px, 1fr));
   margin: 0;
   margin-top: 70px;
   padding: 0;
   list-style-type: none;
   justify-content: space-between;
+  gap: 40px;
 }
 
 .about-project__list-item {
@@ -92,4 +93,53 @@
   line-height: 1.2;
   text-align: center;
   color: #8B8B8B;
+}
+
+
+@media screen and (max-width: 950px) {
+  .about-project {
+    padding: 90px 50px;
+  }
+
+  .about-project__list-item {
+    max-width: 319px;
+  }
+
+  .about-project__list {
+    gap: 30px;
+  }
+
+  .about-project__item-subtitle {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-project {
+    padding: 70px 18px;
+  }
+
+  .about-project__list {
+    margin-top: 60px;
+    gap: 56px;
+  }
+
+  .about-project__progress-bar {
+    grid-template-columns: 1fr 2fr;
+    margin-top: 60px;
+  }
+
+  .about-project__title {
+    margin: 0;
+    padding-bottom: 28px;
+    font-size: 18px;
+  }
+
+  .about-project__progress-bar-item-caption {
+    font-size: 11px;
+  }
+
+  .about-project__progress-bar-item {
+    font-size: 11px;
+  }
 }

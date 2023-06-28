@@ -4,10 +4,10 @@
   border: none;
   margin: 0;
   padding: 15px 19px;
-
 }
 
 .filter-checkbox__label {
+  position: relative;
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -28,14 +28,55 @@
   clip: rect(0 0 0 0);
 }
 
+/*
 .filter-checkbox__input+.filter-checkbox__visible {
   display: block;
   width: 36px;
   height: 20px;
   cursor: pointer;
+  transition: all ease;
   background-image: url(../../images/tumbler-off.svg);
 }
 
 .filter-checkbox__input:checked+.filter-checkbox__visible {
   background-image: url(../../images/tumbler-on.svg);
+} */
+
+
+.filter-checkbox__visible:before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  left: 6px;
+  bottom: 13px;
+  background-color: rgba(160, 160, 160, 1);
+  transition: .4s;
+  -webkit-transition: .4s;
+}
+
+.filter-checkbox__input:checked+.filter-checkbox__visible {
+  background-color: rgba(61, 220, 132, 1);
+}
+
+.filter-checkbox__input:checked+.filter-checkbox__visible:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+  background-color: white;
+}
+
+/* Закругленные ползунки */
+.filter-checkbox__visible {
+  border-radius: 34px;
+  width: 36px;
+  height: 20px;
+  background-color: rgba(52, 52, 52, 1);
+  transition: .4s;
+  -webkit-transition: .4s;
+
+}
+
+.filter-checkbox__visible:before {
+  border-radius: 50%;
 }

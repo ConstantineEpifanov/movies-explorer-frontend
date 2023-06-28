@@ -8,8 +8,6 @@
   flex-grow: 1;
 }
 
-
-
 .navigation_main {
   justify-content: flex-end;
 }
@@ -17,10 +15,9 @@
 .navigation__link {
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
+  font-weight: 500;
+  font-size: 12px;
   line-height: 1.33;
-  /* identical to box height, or 133% */
   display: flex;
   align-items: center;
   text-align: right;
@@ -32,8 +29,11 @@
 
 .navigation__link_active {
   font-weight: 500;
-  /* text-decoration: underline; */
   color: rgba(61, 220, 132, 1);
+}
+
+.navigation__link_main {
+  font-size: 12px;
 }
 
 .navigation__button {
@@ -42,7 +42,7 @@
   background-color: rgba(61, 220, 132, 1);
   border-radius: 3px;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   font-family: 'Inter', Arial, sans-serif;
   font-weight: 500;
   line-height: 1.2;
@@ -55,27 +55,181 @@
   gap: 16px;
 }
 
-
-
 .navigation__button_logged {
   background-color: rgba(49, 49, 49, 1);
   border-radius: 20px;
   color: white;
 }
 
+.navigation__link_movies {
+  display: none;
+}
+
+/* анимация иконки бургера */
+
+.navigation__burger-icon {
+  background-color: transparent;
+  width: 34px;
+  height: 34px;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  margin: 0;
+  border: none;
+  display: none;
+  padding: 0;
+}
+
+.navigation__burger-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.navigation__burger-icon span:nth-child(1) {
+  top: 5px;
+}
+
+.navigation__burger-icon span:nth-child(2),
+.navigation__burger-icon span:nth-child(3) {
+  top: 15px;
+}
+
+.navigation__burger-icon span:nth-child(4) {
+  top: 25px;
+}
+
+.navigation__burger-icon_open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.navigation__burger-icon_open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.navigation__burger-icon_open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.navigation__burger-icon_open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+
+/* медиа запросы  */
+
 @media screen and (max-width: 950px) {
-  .navigation__link_burger {
-    font-size: 18px;
+  .navigation__link_movies {
+    display: block;
+    margin-top: 15vh;
   }
 
-  .navigation_burger {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 30px;
+  .navigation {
     flex-grow: 0;
   }
 
-  .navigation__container_burger {
+  .navigation__link {
+    font-size: 18px;
+  }
+
+  .navigation__link_main {
+    font-size: 12px;
+  }
+
+  .navigation__link_active {
+    border-bottom: 2px solid white;
+    color: white;
+  }
+
+  .navigation__button {
+    font-size: 10px;
+  }
+
+  .navigation__button_logged {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    margin-top: 57vh;
+  }
+
+  .navigation__container {
     flex-direction: column;
+    position: absolute;
+    align-items: center;
+    display: none;
+    gap: 28px;
+  }
+
+  .navigation__burger-icon {
+    display: flex;
+    z-index: 99;
+  }
+
+  .navigation__burger-icon_open+.navigation__container::before {
+    content: "";
+    display: block;
+    height: 100vh;
+    position: absolute;
+    right: 66%;
+    transform: translateX(-33%);
+    width: 100%;
+    background-color: black;
+    opacity: .3;
+  }
+
+  .navigation__burger-icon_open+.navigation__container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 67vw;
+    height: 100vh;
+    background-color: rgba(32, 32, 32, 1);
+    z-index: 1;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .navigation__burger-icon_open+.navigation__container::before {
+    display: none;
+  }
+
+  .navigation__burger-icon_open+.navigation__container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(32, 32, 32, 1);
+    z-index: 1;
+  }
+
+  .navigation__link_movies {
+    margin-top: 18vh;
+  }
+
+  .navigation__container {
+    gap: 24px;
+  }
+
+  .navigation__button_logged {
+    margin-top: 54vh;
+  }
+
+  .navigation__link_main {
+    font-size: 10px;
   }
 }

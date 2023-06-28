@@ -6,7 +6,7 @@ function Profile() {
 
   return (
     <section className="profile">
-      <h2 className="profile__title">Привет, Виталий!</h2>
+      <h1 className="profile__title">Привет, Виталий!</h1>
       <form>
         <ul
           className={`profile__list ${
@@ -26,7 +26,6 @@ function Profile() {
               disabled={isDisabled}
             />
           </li>
-          <div className="line"></div>
           <li className="profile__item">
             <label className="profile__item-name" htmlFor="email">
               E-mail

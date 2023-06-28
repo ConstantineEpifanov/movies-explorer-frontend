@@ -14,12 +14,12 @@ function Register() {
       <input
         id="name"
         name="name"
-        type="name"
+        type="text"
         placeholder="Жак"
         className="forma__form-input styled-focus"
         required
       />
-      <span id="forma__error" className="forma__error"></span>
+      <span className="forma__error"></span>
     </Forma>
   );
 }

@@ -37,20 +37,19 @@
   margin-bottom: 60px;
 }
 
-
 @media screen and (max-width: 950px) {
   .not-found__title {
+    margin-top: 40vh;
+  }
 
-    margin-top: 408px;
+  .not-found__link {
+    margin-top: 18vh;
   }
 }
 
-
-
 @media screen and (max-width: 500px) {
   .not-found__title {
-
-    margin-top: 329px;
+    margin-top: 42vh;
   }
 
   .not-found__subtitle {
@@ -58,6 +57,7 @@
   }
 
   .not-found__link {
-    margin-top: 284px;
+    margin-top: 36vh;
+    margin-bottom: 4vh;
   }
 }
