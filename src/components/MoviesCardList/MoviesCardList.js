@@ -10,14 +10,11 @@ function MoviesCardList() {
         <MoviesCard />
         <MoviesCard />
         <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
       </ul>
 
-      <button className="movies__more">Ещё
+      <button type="button" className="movies__more link-hover">
+        Ещё
       </button>
-
     </section>
   );
 }

@@ -25,12 +25,12 @@ function AboutProject() {
         </li>
       </ul>
       <div className="about-project__progress-bar">
-        <div className="about-project__progress-bar-item about-project__progress-bar-item_backend">
+        <p className="about-project__progress-bar-item about-project__progress-bar-item_backend">
           1 неделя
-        </div>
-        <div className="about-project__progress-bar-item about-project__progress-bar-item_frontend">
+        </p>
+        <p className="about-project__progress-bar-item about-project__progress-bar-item_frontend">
           4 недели
-        </div>
+        </p>
         <p className="about-project__progress-bar-item-caption">Back-end</p>
         <p className="about-project__progress-bar-item-caption">Front-end</p>
       </div>

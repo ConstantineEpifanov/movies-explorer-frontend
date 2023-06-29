@@ -20,14 +20,14 @@
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  margin: 17vh auto 31vh;
+  margin: 16vh auto 28vh;
   padding: 10px;
   gap: 16px;
   border-radius: 6px;
 }
 
 .profile__list_active {
-  background-color: rgba(61, 220, 132, .8);
+  outline: 1px solid rgba(61, 220, 132, .8);;
 }
 
 .profile__item {
@@ -66,6 +66,13 @@
   color: #FFFFFF;
   background-color: transparent;
   border: none;
+  outline: none;
+  width: 50%;
+}
+
+.profile__item-text:focus {
+  background-color: #c1f0bf;
+  border-radius: 6px;
 }
 
 .profile__button {
@@ -99,9 +106,6 @@
 }
 
 
-
-
-
 @media screen and (max-width: 950px) {
 
   .profile__title {
@@ -109,8 +113,8 @@
   }
 
   .profile__list {
-    margin-top: 9vh;
-    margin-bottom: 20vh;
+    margin-top: 8vh;
+    margin-bottom: 18vh;
   }
 }
 

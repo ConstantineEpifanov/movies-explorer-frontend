@@ -21,7 +21,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
-  line-height: 1.2;
+  line-height: 58px;
   color: white;
 }
 
@@ -91,16 +91,22 @@
   }
 
   .promo__subtitle {
-    margin-top: 22px;
+    margin-top: 21px;
+    max-width: 260px;
   }
 
   .promo__anchor-link {
-    margin-top: 92px;
+    margin-top: 91px;
   }
 }
 
 @media screen and (max-width: 500px) {
+  .promo {
+    padding: 67px 0 30px;
+  }
+
   .promo__logo {
+    margin-bottom: 46px;
     width: 210px;
     height: 206px;
   }
@@ -110,5 +116,12 @@
     line-height: 38px;
     letter-spacing: -1.2px;
   }
-}
 
+  .promo__subtitle {
+    margin-top: 23px;
+  }
+
+  .promo__anchor-link {
+    margin-top: 79px;
+  }
+}

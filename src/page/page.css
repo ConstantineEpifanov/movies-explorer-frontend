@@ -16,13 +16,10 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .link-hover:hover {
   opacity: .6;
   transition: .3s ease;
-}
-
-.styled-focus {
-  outline-color: rgba(61, 220, 132, 1);
 }

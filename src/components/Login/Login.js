@@ -8,7 +8,7 @@ function Login() {
       submitButtonText="Войти"
       questionText="Ещё не зарегистрированы?"
       linkText="Регистрация"
-      link="/sign-up"
+      link="/signup"
     />
   );
 }

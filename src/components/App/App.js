@@ -17,19 +17,19 @@ function App() {
 
   return (
     <div className='app'>
-      {location.pathname !== '/sign-in' &&  location.pathname !== '/sign-up' && location.pathname !== '/404' && <Header location={location}/>}
+      {location.pathname !== '/signin' &&  location.pathname !== '/signup' && location.pathname !== '/404' && <Header location={location}/>}
       <Routes>
         <Route path='/' element={ <Main /> }  />
         <Route path='/movies' element={ <Movies/> }  />
         <Route path='/saved-movies' element={ <SavedMovies />}  />
 
         <Route path='/profile' element={ <Profile /> } />
-        <Route path='/sign-in' element={ <Login/> } />
-        <Route path='/sign-up' element={ <Register/> } />
+        <Route path='/signin' element={ <Login/> } />
+        <Route path='/signup' element={ <Register/> } />
         <Route path='/404' element={ <NotFound/> } />
         <Route path='*' element={<Navigate to='/404' />} />
       </Routes>
-      {location.pathname !== '/sign-in' &&  location.pathname !== '/sign-up' && location.pathname !== '/404' && location.pathname !== '/profile' && <Footer/>}
+      {location.pathname !== '/signin' &&  location.pathname !== '/signup' && location.pathname !== '/404' && location.pathname !== '/profile' && <Footer/>}
     </div>
   );
 }

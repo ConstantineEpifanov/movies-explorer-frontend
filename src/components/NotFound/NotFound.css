@@ -29,12 +29,18 @@
 
 .not-found__link {
   margin: 0;
+  padding: 0;
   margin-top: 184px;
   cursor: pointer;
   color: rgba(66, 133, 244, 1);
   text-decoration: none;
   align-self: center;
   margin-bottom: 60px;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: transparent;
+  border: none;
 }
 
 @media screen and (max-width: 950px) {
@@ -49,15 +55,17 @@
 
 @media screen and (max-width: 500px) {
   .not-found__title {
+    font-size: 80px;
     margin-top: 42vh;
   }
 
   .not-found__subtitle {
-    margin-top: 10px;
+    font-size: 12px;
+    margin-top: 13px;
   }
 
   .not-found__link {
     margin-top: 36vh;
-    margin-bottom: 4vh;
+    font-size: 12px;
   }
 }

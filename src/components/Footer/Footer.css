@@ -54,7 +54,12 @@
 
 
 
-@media screen and (max-width: 950px) {}
+@media screen and (max-width: 950px) {
+  .footer {
+    padding: 59px 30px 20px;
+  }
+
+}
 
 @media screen and (max-width: 500px) {
   .footer {
@@ -63,19 +68,18 @@
 
   .footer__title {
     font-size: 12px;
-
   }
 
   .footer__container {
+    margin-top: 27px;
     display: grid;
     grid-template-areas: "links"
       "copyright";
-    gap: 12px;
+    gap: 26px;
     justify-content: center;
   }
 
   .footer__copyright {
-    padding-top: 18px;
     color: rgba(139, 139, 139, 1);
     font-size: 12px;
     grid-area: copyright;
@@ -85,6 +89,7 @@
     grid-area: links;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
   }
 
   .footer__link {

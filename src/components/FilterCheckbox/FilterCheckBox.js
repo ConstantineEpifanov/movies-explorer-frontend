@@ -3,7 +3,7 @@ import React from "react";
 function FilterCheckBox() {
   return (
     <fieldset className="filter-checkbox">
-      <label className="filter-checkbox__label" htmlFor="shortfilm">
+      <label className="filter-checkbox__label link-hover" htmlFor="shortfilm">
         <input
           className="filter-checkbox__input"
           type="checkbox"

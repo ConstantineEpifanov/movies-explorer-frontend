@@ -8,16 +8,20 @@ function Register() {
       submitButtonText="Зарегистрироваться"
       questionText="Уже зарегистрированы?"
       linkText="Войти"
-      link="/sign-in"
+      link="/signin"
     >
-      <p className="forma__input-name">Имя</p>
+      <label className="forma__input-name" htmlFor="name">
+        Имя
+      </label>
       <input
         id="name"
         name="name"
         type="text"
         placeholder="Жак"
-        className="forma__form-input styled-focus"
+        className="forma__form-input"
         required
+        minlength="2"
+        maxlength="40"
       />
       <span className="forma__error"></span>
     </Forma>

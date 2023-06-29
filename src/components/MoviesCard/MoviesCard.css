@@ -5,13 +5,17 @@
   background-color: rgba(34, 34, 34, 1);
   overflow: hidden;
   box-sizing: border-box;
+  width: 100%;
 }
 
 .card__img {
+  display: flex;
   max-width: 100%;
+  height: 203px;
   object-position: center;
-  object-fit: contain;
+  object-fit: cover;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .card__container {
@@ -20,7 +24,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 12px;
 }
 
 .card__title {
@@ -73,21 +76,37 @@
 
 @media screen and (max-width: 950px) {
   .card__container {
-    padding: 14px;
-    gap: 6px;
+    padding: 12px 12px 13px;
   }
 
   .card__duration {
     margin: 0 14px 14px;
+  }
+
+  .card__img {
+    height: 190px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .card__title {
     font-size: 12px;
+    max-width: 240px;
   }
 
   .card__duration {
     font-size: 10px;
+  }
+
+  .card__img {
+    height: 168px;
+  }
+
+  .card__container {
+    padding: 13px 15px 15px;
+  }
+
+  .card__duration {
+    margin: 0 14px 15px;
   }
 }

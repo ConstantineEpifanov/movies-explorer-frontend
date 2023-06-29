@@ -1,7 +1,7 @@
 .portfolio {
   display: flex;
   flex-direction: column;
-  padding: 0 70px 125px;
+  padding: 0 70px 105px;
 }
 
 .portfolio__title {
@@ -28,7 +28,7 @@
 }
 
 .portfolio__link-item {
-  padding-bottom: 10px;
+  padding-bottom: 9px;
   border-bottom: 1px solid rgba(230, 230, 230, 1);
 }
 
@@ -83,12 +83,13 @@
 
 @media screen and (max-width: 500px) {
   .portfolio {
-    padding: 0 14px 70px;
+    padding: 0 14px 52px;
   }
 
   .portfolio__title {
     font-size: 14px;
     line-height: 20px;
+    margin-bottom: 40px;
   }
 
 
