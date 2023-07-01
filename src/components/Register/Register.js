@@ -20,8 +20,8 @@ function Register() {
         placeholder="Жак"
         className="forma__form-input"
         required
-        minlength="2"
-        maxlength="40"
+        minLength="2"
+        maxLength="40"
       />
       <span className="forma__error"></span>
     </Forma>

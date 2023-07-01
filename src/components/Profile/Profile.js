@@ -25,8 +25,8 @@ function Profile() {
                 placeholder="Имя"
                 required
                 disabled={isDisabled}
-                minlength="2"
-                maxlength="40"
+                minLength="2"
+                maxLength="40"
               />
             </li>
             <li className="profile__item">

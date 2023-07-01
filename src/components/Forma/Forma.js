@@ -47,8 +47,8 @@ function Form({
             placeholder="СекретныйПароль"
             className="forma__form-input"
             required
-            minlength="2"
-            maxlength="40"
+            minLength="2"
+            maxLength="40"
           />
           <span className="forma__error forma__error_visible">
             Что-то пошло не так...
