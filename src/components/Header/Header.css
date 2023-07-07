@@ -1,0 +1,36 @@
+.header {
+  background-color: rgba(32, 32, 32, 1);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 18px 70px;
+}
+
+.header_main {
+  background-color: rgba(7, 48, 66, 1);
+}
+
+.header__logo {
+  width: 38px;
+  height: 38px;
+  box-sizing: content-box;
+}
+
+.header__link {
+  margin-right: 44px;
+}
+
+
+@media screen and (max-width: 950px) {
+  .header {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    padding: 18px 14px;
+  }
+}
+

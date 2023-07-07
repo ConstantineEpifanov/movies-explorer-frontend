@@ -1,0 +1,111 @@
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  padding: 0 70px 105px;
+}
+
+.portfolio__title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.11;
+  /* identical to box height, or 111% */
+  color: rgba(139, 139, 139, 1);
+  mix-blend-mode: normal;
+  margin: 0;
+  margin-bottom: 50px;
+}
+
+.portfolio__links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.portfolio__link-item {
+  padding-bottom: 9px;
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+}
+
+.portfolio__link-name {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.67;
+  /* identical to box height, or 167% */
+  letter-spacing: -0.04em;
+  color: white;
+}
+
+.portfolio__link-item:last-of-type {
+  border: none;
+}
+
+.portfolio__link-sign {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 2;
+  /* identical to box height, or 200% */
+  letter-spacing: -0.04em;
+  color: white;
+  margin: 0;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 950px) {
+  .portfolio {
+    padding: 0 50px 90px;
+  }
+
+  .portfolio__link-name {
+    font-size: 28px;
+    line-height: 50px;
+    letter-spacing: -1.12px;
+  }
+
+  .portfolio__link-sign {
+    font-size: 28px;
+    line-height: 60px;
+    letter-spacing: -1.12px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .portfolio {
+    padding: 0 14px 52px;
+  }
+
+  .portfolio__title {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 40px;
+  }
+
+
+  .portfolio__link-name {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+
+  .portfolio__link-sign {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+
+  .portfolio__link-item {
+    padding-bottom: 19px;
+  }
+}

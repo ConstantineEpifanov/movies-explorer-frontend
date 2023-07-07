@@ -1,0 +1,137 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__title {
+  margin: 10vh auto 0;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  /* identical to box height */
+  text-align: center;
+  color: white;
+}
+
+.profile__list {
+  max-width: 410px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 16vh auto 28vh;
+  padding: 10px;
+  gap: 16px;
+  border-radius: 6px;
+}
+
+.profile__list_active {
+  outline: 1px solid rgba(61, 220, 132, .8);;
+}
+
+.profile__item {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding-bottom: 16px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(66, 66, 66, 1);
+}
+
+.profile__item:last-of-type {
+  border: none;
+}
+
+.profile__item-name {
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.2;
+  /* identical to box height */
+  color: #FFFFFF;
+}
+
+.profile__item-text {
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  /* identical to box height */
+  text-align: right;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 50%;
+}
+
+.profile__item-text:focus {
+  background-color: #c1f0bf;
+  border-radius: 6px;
+}
+
+.profile__button {
+  margin: 0 auto 16px;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.2;
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.profile__button_active {
+  border-radius: 30px;
+  background-color: rgba(61, 220, 132, 1);
+  padding: 0 15px;
+}
+
+.profile__button_warning-color {
+  font-weight: 500;
+  color: rgba(238, 52, 101, 1);
+}
+
+
+@media screen and (max-width: 950px) {
+
+  .profile__title {
+    margin-top: 23vh;
+  }
+
+  .profile__list {
+    margin-top: 8vh;
+    margin-bottom: 18vh;
+  }
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .profile__title {
+    margin-top: 9vh;
+  }
+
+  .profile__list {
+    margin-top: 10vh;
+    margin-bottom: 46vh;
+    padding: 0 30px;
+  }
+
+  .profile__button:last-child {
+    margin-bottom: 5vh;
+  }
+}

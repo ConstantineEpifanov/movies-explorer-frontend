@@ -1,0 +1,25 @@
+.page {
+  min-width: 320px;
+  max-width: 1280px;
+  min-height: 100vh;
+  background-color: rgba(32, 32, 32, 1);
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.link-hover:hover {
+  opacity: .6;
+  transition: .3s ease;
+}
