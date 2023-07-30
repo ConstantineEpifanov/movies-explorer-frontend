@@ -50,7 +50,6 @@
   white-space: nowrap;
   overflow: hidden;
   padding: 15px;
-  width: calc(396px - 15*2);
   background: rgba(47, 47, 47, 1);
   border-radius: 8px;
   border: none;
@@ -83,6 +82,11 @@
   cursor: pointer;
 }
 
+.forma__button_disabled {
+  background-color: grey;
+  cursor: default;
+}
+
 .forma__error {
   display: block;
   height: 10px;
@@ -92,11 +96,11 @@
   font-size: 10px;
   line-height: 1.2;
   color: rgba(238, 52, 101, 1);
-  visibility: hidden;
 }
 
-.forma__error_visible {
-  visibility: visible;
+.forma__error_auth {
+  position: absolute;
+  top: -20px;
 }
 
 .forma__question {
@@ -136,6 +140,7 @@
 
 .forma__submit-container {
   margin-top: 69px;
+  position: relative;
 }
 
 .forma__submit-container_signin {
@@ -190,7 +195,7 @@
     margin-bottom: 10vh;
   }
 
-  .forma__submit-container{
+  .forma__submit-container {
     margin-top: 20.7vh;
   }
 

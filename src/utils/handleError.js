@@ -1,0 +1,35 @@
+import {
+  BAD_REQUEST_ERROR,
+  AUTHORISATION_ERROR,
+  FORBIDDEN_ERROR,
+  NOT_FOUND_ERROR,
+  CONFLICT_ERROR,
+  INTERNAL_SERVER_ERROR,
+  BAD_REQUEST_ERROR_MESSAGE,
+  AUTHORISATION_ERROR_MESSAGE,
+  FORBIDDEN_ERROR_MESSAGE,
+  NOT_FOUND_ERROR_MESSAGE,
+  CONFLICT_ERROR_MESSAGE,
+  INTERNAL_SERVER_ERROR_MESSAGE,
+} from "./constants";
+
+export default function handleError(err) {
+  if (err.includes(BAD_REQUEST_ERROR)) {
+    alert(BAD_REQUEST_ERROR_MESSAGE);
+  }
+  if (err.includes(AUTHORISATION_ERROR)) {
+    alert(AUTHORISATION_ERROR_MESSAGE);
+  }
+  if (err.includes(FORBIDDEN_ERROR)) {
+    alert(FORBIDDEN_ERROR_MESSAGE);
+  }
+  if (err.includes(NOT_FOUND_ERROR)) {
+    alert(NOT_FOUND_ERROR_MESSAGE);
+  }
+  if (err.includes(CONFLICT_ERROR)) {
+    alert(CONFLICT_ERROR_MESSAGE);
+  }
+  if (err.includes(INTERNAL_SERVER_ERROR)) {
+    alert(INTERNAL_SERVER_ERROR_MESSAGE);
+  }
+}

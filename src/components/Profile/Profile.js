@@ -1,19 +1,55 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useContext, useEffect } from "react";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { updateUserInfo } from "../../utils/MainApi";
+import handleError from "../../utils/handleError";
+import { NAME_ERROR, EMAIL_ERROR } from "../../utils/constants";
 
-function Profile() {
+function Profile({ handleLogout, setCurrentUser }) {
   const [isDisabled, setDisabled] = useState(true);
+  const { values, setValues, handleChange, isValid, errors, setErrors } =
+    useFormWithValidation();
+
+  const currentUser = useContext(CurrentUserContext);
+
+  useEffect(() => {
+    setValues(currentUser);
+  }, [setCurrentUser]);
+
+  useEffect(() => {
+    if (
+      values.name === currentUser.name &&
+      values.email === currentUser.email
+    ) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [values, currentUser]);
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+
+    updateUserInfo({ name: values.name, email: values.email })
+      .then((res) => {
+        setCurrentUser({ name: res.name, email: res.email });
+        setErrors({});
+        alert("Данные изменены");
+      })
+      .catch((err) => {
+        handleError(err);
+        setValues(currentUser);
+      });
+  }
 
   return (
     <main>
       <section className="profile">
-        <h1 className="profile__title">Привет, Виталий!</h1>
-        <form>
-          <ul
-            className={`profile__list ${
-              isDisabled ? "" : "profile__list_active"
-            }`}
-          >
+        <h1 className="profile__title">Привет, {currentUser.name}!</h1>
+        <form onSubmit={handleSubmit} noValidate>
+          <ul className="profile__list">
             <li className="profile__item">
               <label className="profile__item-name" htmlFor="name">
                 Имя
@@ -22,12 +58,18 @@ function Profile() {
                 className="profile__item-text"
                 type="text"
                 id="name"
+                name="name"
                 placeholder="Имя"
                 required
-                disabled={isDisabled}
-                minLength="2"
-                maxLength="40"
+                minLength={2}
+                maxLength={30}
+                pattern="[a-zA-Zа-яА-Я\-\s]+"
+                value={values.name || ""}
+                onChange={handleChange}
               />
+              <span className="profile__item-error">
+                {errors.name ? NAME_ERROR : ""}
+              </span>
             </li>
             <li className="profile__item">
               <label className="profile__item-name" htmlFor="email">
@@ -37,25 +79,35 @@ function Profile() {
                 className="profile__item-text"
                 type="email"
                 id="email"
+                name="email"
                 placeholder="e@mail.ee"
                 required
-                disabled={isDisabled}
+                pattern="\S+@\S+\.\S{2,}"
+                value={values.email || ""}
+                onChange={handleChange}
               />
+              <span className="profile__item-error">
+                {errors.email ? EMAIL_ERROR : ""}
+              </span>
             </li>
           </ul>
+
+          <button
+            type="submit"
+            className={`profile__button ${
+              isDisabled || !isValid
+                ? "profile__button_disabled"
+                : "profile__button_active link-hover"
+            }`}
+            disabled={isDisabled || !isValid}
+          >
+            Редактировать
+          </button>
         </form>
-        <button
-          type="button"
-          className={`profile__button ${
-            isDisabled ? "" : "profile__button_active"
-          } link-hover`}
-          onClick={() => setDisabled((prevState) => !prevState)}
-        >
-          {isDisabled ? "Редактировать" : "Сохранить"}
-        </button>
         <Link
           to="/"
           className="profile__button profile__button_warning-color link-hover"
+          onClick={handleLogout}
         >
           Выйти из аккаунта
         </Link>

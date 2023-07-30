@@ -2,19 +2,17 @@ import React from "react";
 import logo from "../../images/logo.svg";
 import { Link, useLocation } from "react-router-dom";
 
-function Form({
+function Forma({
   welcomeText,
   submitButtonText,
   questionText,
   linkText,
   link,
   children,
+  handleSubmit,
+  isValid,
 }) {
   const location = useLocation();
-
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
 
   return (
     <main>
@@ -23,36 +21,8 @@ function Form({
           <img src={logo} alt="Логотип $" className="forma__logo link-hover" />
         </Link>
         <h1 className="forma__title">{welcomeText}</h1>
-        <form onSubmit={handleSubmit} className="forma__form">
+        <form onSubmit={handleSubmit} className="forma__form" noValidate>
           {children}
-          <label className="forma__input-name" htmlFor="email">
-            E-mail
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="e@mail.ee"
-            className="forma__form-input"
-            required
-          />
-          <span className="forma__error"></span>
-          <label className="forma__input-name" htmlFor="password">
-            Пароль
-          </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="СекретныйПароль"
-            className="forma__form-input"
-            required
-            minLength="2"
-            maxLength="40"
-          />
-          <span className="forma__error forma__error_visible">
-            Что-то пошло не так...
-          </span>
           <div
             className={
               location.pathname === "/signin"
@@ -60,7 +30,18 @@ function Form({
                 : "forma__submit-container"
             }
           >
-            <button type="submit" className="forma__button">
+            <span className="forma__error forma__error_auth">
+              {Error.message}
+            </span>
+            <button
+              type="submit"
+              className={
+                !isValid
+                  ? "forma__button forma__button_disabled"
+                  : "forma__button"
+              }
+              disabled={!isValid}
+            >
               {submitButtonText}
             </button>
             <div className="forma__question">
@@ -76,4 +57,4 @@ function Form({
   );
 }
 
-export default Form;
+export default Forma;
