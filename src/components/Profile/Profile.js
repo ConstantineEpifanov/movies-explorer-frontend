@@ -16,8 +16,9 @@ function Profile({ handleLogout, setCurrentUser }) {
 
   useEffect(() => {
     setValues(currentUser);
-  }, [setCurrentUser]);
+  }, [currentUser]);
 
+  // Вставка данных в инпуты
   useEffect(() => {
     if (
       values.name === currentUser.name &&
@@ -29,6 +30,8 @@ function Profile({ handleLogout, setCurrentUser }) {
     }
   }, [values, currentUser]);
 
+
+  // Сабмит формы профиля для обновления
   function handleSubmit(evt) {
     evt.preventDefault();
 

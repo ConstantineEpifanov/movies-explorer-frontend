@@ -24,6 +24,7 @@ function Movies({
 
   const size = useResize();
 
+  // Вставка данных при загрузки страницы из локалки
   useEffect(() => {
     if (moviesSearch) {
       setFilteredMovies(JSON.parse(moviesSearch));
@@ -36,12 +37,13 @@ function Movies({
     }
   }, []);
 
-  useEffect(() => {
-    if (searchReq) {
-      values.search = JSON.parse(searchReq)
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (searchReq) {
+  //     values.search = JSON.parse(searchReq)
+  //   }
+  // }, []);
 
+// Переключение короткометражек для рендера карточек
   useEffect(() => {
     if (movies.length !== 0 && isChecked) {
       filterMovies();
@@ -54,10 +56,13 @@ function Movies({
     }
   }, [isChecked]);
 
+  // Кол-во фильмов на странице при рендере
   useEffect(() => {
     setMoviesAddCount(0);
   }, [filteredMovies]);
 
+
+// Фильтр-поиск фильмов из локалки
   function filterMovies() {
     setPreloader(true);
     let filteredMoviesList = [];
@@ -98,19 +103,21 @@ function Movies({
     }, 1000);
   }
 
+
+  // Стартовое кол-во фильмов для отображения на разных разрешениях
   const filmsStartQuantity = () => {
     return size.isScreenLarge ? 12 : size.isScreenMedium ? 8 : 5;
   };
-
+  // Кнопка еще
   function handleMoreClick() {
     setMoviesAddCount((prev) => prev + (size.isScreenLarge ? 3 : 2));
   }
-
+// Клик на кнопку поиска
   function handleSearch(evt) {
     evt.preventDefault();
     filterMovies();
   }
-
+// Клик на короткометражки
   function handleShortsClick() {
     setChecked((isChecked) => !isChecked);
     localStorage.setItem("shortsCheck", !isChecked);

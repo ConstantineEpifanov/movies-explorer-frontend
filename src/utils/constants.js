@@ -2,23 +2,6 @@
 export const SCREEN_MEDIUM = 1270;
 export const SCREEN_SMALL = 770;
 
-// export const STARTING_ITEMS_DESCTOP = 16;
-// export const STARTING_ITEMS_TABLET = 12;
-// export const STARTING_ITEMS_MOBILE = 8;
-// export const STARTING_ITEMS_MINIMUM = 5;
-
-// export const ADDITIONAL_ITEMS_DESCTOP = 4;
-// export const ADDITIONAL_ITEMS_TABLET = 3;
-// export const ADDITIONAL_ITEMS_MOBILE = 2;
-// export const ADDITIONAL_ITEMS_MINIMUM = 2;
-// export const ONE_ADDITIONAL_ELEMENT = 1;
-
-// export const MOVIE_DOWNLOAD_ERROR = 'Сбой! Фильмы не загружены с сервера. Попробуйте позже.';
-// export const TOKEN_VERIFICATION_ERROR = 'Сбой авторизации! Попробуйте позже.';
-// export const FAVORITE_DELETE_ERROR = 'Сбой удаления из избранных! Попробуйте позже.';
-// export const ERROR_ADDING_FAVORITES = 'Сбой добавления в избранные! Попробуйте позже.';
-
-
 export const MINUTES_IN_HOUR = 60;
 export const SHORT_FILM_MAX_DURATION = 40;
 

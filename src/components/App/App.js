@@ -111,6 +111,7 @@ function App() {
     navigate("/", { replace: true });
   }
 
+  // Удаление фильма из сохраненных
   function handleMovieDelete(movie) {
     deleteFavorite(movie)
       .then(() => {
@@ -122,6 +123,7 @@ function App() {
       });
   }
 
+  // Добавить фильм в сохраненные
   function handleMovieFavorite(movie) {
     movie.owner = currentUser._id;
     addFavorite(movie)
