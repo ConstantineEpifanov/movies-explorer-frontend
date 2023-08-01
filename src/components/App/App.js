@@ -61,7 +61,7 @@ function App() {
     } else {
     }
     setTokenChecked(true);
-  }, []);
+  }, [loggedIn]);
 
   // Переадресация авторизованного
   useEffect(() => {
