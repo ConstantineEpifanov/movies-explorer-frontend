@@ -1,10 +1,26 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-function MoviesCard({ movie, handleDelete, handleAddToFavorite }) {
-  const [isLiked, setLike] = useState(false);
-
+function MoviesCard({
+  movie,
+  savedMovies,
+  handleMovieDelete,
+  handleMovieFavorite,
+  isLiked,
+}) {
   const location = useLocation();
+
+  function onCardClick() {
+    if (isLiked) {
+      handleMovieDelete(savedMovies.find((m) => m.movieId === movie.id));
+    } else {
+      handleMovieFavorite(movie);
+    }
+  }
+
+  function onDelete() {
+    handleMovieDelete(movie);
+  }
 
   function getDuration(duration) {
     const hours = Math.floor(duration / 60);
@@ -18,7 +34,11 @@ function MoviesCard({ movie, handleDelete, handleAddToFavorite }) {
       <Link to={movie.trailerLink}>
         <img
           className="card__img link-hover"
-          src={`https://api.nomoreparties.co/${movie.image.url}`}
+          src={
+            location.pathname !== "/saved-movies"
+              ? `https://api.nomoreparties.co/${movie.image.url}`
+              : movie.image
+          }
           alt={movie.nameRU}
         />
       </Link>
@@ -28,7 +48,7 @@ function MoviesCard({ movie, handleDelete, handleAddToFavorite }) {
           <button
             className="card__delete card__delete_active link-hover"
             type="button"
-            onClick={() => handleDelete(movie._id)}
+            onClick={onDelete}
           />
         ) : (
           <button
@@ -36,7 +56,7 @@ function MoviesCard({ movie, handleDelete, handleAddToFavorite }) {
               isLiked ? "card__like_active" : ""
             } link-hover`}
             type="button"
-            onClick={() => handleAddToFavorite(movie)}
+            onClick={onCardClick}
           />
         )}
       </div>

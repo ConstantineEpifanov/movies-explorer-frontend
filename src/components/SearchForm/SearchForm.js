@@ -11,9 +11,8 @@ function SearchForm({
   searchReq,
   handleShortsClick,
 }) {
-
   useEffect(() => {
-    if (searchReq) {
+    if (typeof searchReq === String || Number) {
       values.search = JSON.parse(searchReq);
     }
   }, []);

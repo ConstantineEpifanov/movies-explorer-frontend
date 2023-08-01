@@ -11,6 +11,8 @@ import {
   NOT_FOUND_ERROR_MESSAGE,
   CONFLICT_ERROR_MESSAGE,
   INTERNAL_SERVER_ERROR_MESSAGE,
+  T00_MANY_REQUESTS_ERROR,
+  T00_MANY_REQUESTS_ERROR_MESSAGE,
 } from "./constants";
 
 export default function handleError(err) {
@@ -31,5 +33,8 @@ export default function handleError(err) {
   }
   if (err.includes(INTERNAL_SERVER_ERROR)) {
     alert(INTERNAL_SERVER_ERROR_MESSAGE);
+  }
+  if (err.includes(T00_MANY_REQUESTS_ERROR)) {
+    alert(T00_MANY_REQUESTS_ERROR_MESSAGE);
   }
 }

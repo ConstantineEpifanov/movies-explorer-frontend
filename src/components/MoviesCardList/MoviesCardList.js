@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import { useLocation } from "react-router-dom";
 import Preloader from "../Preloader/Preloader";
@@ -11,12 +11,23 @@ function MoviesCardList({
   isPreloader,
   notFoundSearch,
   isErrorSearchMessage,
+  savedMovies,
+  handleMovieDelete,
+  handleMovieFavorite,
 }) {
   const location = useLocation();
 
   const moviesRender = useMemo(() => {
-    return filteredMovies.slice(0, filmsStartQuantity() + moviesAddCount);
+    if (location.pathname === "/movies") {
+      return filteredMovies.slice(0, filmsStartQuantity() + moviesAddCount);
+    } else {
+      return filteredMovies;
+    }
   }, [filteredMovies, moviesAddCount]);
+
+  function getSavedMovieCard(savedMovies, movie) {
+    return savedMovies.find((savedMovies) => savedMovies.movieId === movie.id);
+  }
 
   return (
     <section className="movies__cards">
@@ -38,8 +49,12 @@ function MoviesCardList({
             {moviesRender.map((movie) => {
               return (
                 <MoviesCard
-                  key={movie.id || movie.movieId}
+                  key={movie.id || movie._id}
                   movie={movie}
+                  savedMovies={savedMovies}
+                  isLiked={getSavedMovieCard(savedMovies, movie)}
+                  handleMovieDelete={handleMovieDelete}
+                  handleMovieFavorite={handleMovieFavorite}
                 />
               );
             })}

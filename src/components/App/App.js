@@ -19,9 +19,15 @@ import Register from "../Register/Register";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import { getUserInfo, getSavedMovies } from "../../utils/MainApi";
+import {
+  getUserInfo,
+  getSavedMovies,
+  addFavorite,
+  deleteFavorite,
+} from "../../utils/MainApi";
 import { getMoviesList } from "../../utils/MoviesApi";
 import Preloader from "../Preloader/Preloader";
+import handleError from "../../utils/handleError";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -48,7 +54,10 @@ function App() {
           navigate(location.pathname, { replace: true });
           setTokenChecked(true);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          handleError(err);
+        });
     } else {
     }
     setTokenChecked(true);
@@ -74,6 +83,7 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
+          handleError(err);
           setErrorSearchMessage(true);
         });
     }
@@ -84,12 +94,11 @@ function App() {
     if (loggedIn) {
       getSavedMovies()
         .then((res) => {
-          setSavedMovies(
-            res.filter((movie) => movie.owner === currentUser.ownerId)
-          );
+          setSavedMovies(res);
         })
         .catch((err) => {
           console.log(err);
+          handleError(err);
         });
     }
   }, [loggedIn]);
@@ -100,6 +109,29 @@ function App() {
     localStorage.clear();
     setSavedMovies([]);
     navigate("/", { replace: true });
+  }
+
+  function handleMovieDelete(movie) {
+    deleteFavorite(movie)
+      .then(() => {
+        setSavedMovies((movies) => movies.filter((m) => m._id !== movie._id));
+      })
+      .catch((err) => {
+        console.log(err);
+        handleError(err);
+      });
+  }
+
+  function handleMovieFavorite(movie) {
+    movie.owner = currentUser._id;
+    addFavorite(movie)
+      .then((newMovie) => {
+        setSavedMovies([newMovie, ...savedMovies]);
+      })
+      .catch((err) => {
+        console.log(err);
+        handleError(err);
+      });
   }
 
   return (
@@ -120,14 +152,23 @@ function App() {
                   element={Movies}
                   loggedIn={loggedIn}
                   movies={movies}
+                  savedMovies={savedMovies}
                   isErrorSearchMessage={isErrorSearchMessage}
+                  handleMovieDelete={handleMovieDelete}
+                  handleMovieFavorite={handleMovieFavorite}
                 />
               }
             />
             <Route
               path="/saved-movies"
               element={
-                <ProtectedRoute element={SavedMovies} loggedIn={loggedIn} savedMovies={savedMovies}/>
+                <ProtectedRoute
+                  element={SavedMovies}
+                  loggedIn={loggedIn}
+                  savedMovies={savedMovies}
+                  handleMovieDelete={handleMovieDelete}
+                  handleMovieFavorite={handleMovieFavorite}
+                />
               }
             />
             <Route

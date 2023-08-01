@@ -3,10 +3,7 @@ export function checkResponse(res) {
 }
 
 function request(url, options) {
-  return fetch(
-    `http://localhost:3001${url}`,
-    options
-  ).then(checkResponse);
+  return fetch(`http://localhost:3001${url}`, options).then(checkResponse);
 }
 
 function setHeaders() {
@@ -60,7 +57,7 @@ export function getUserInfo() {
 // Фильмы
 
 export function addFavorite(movie) {
-  return request(`/movies`, {
+  return request("/movies", {
     method: "POST",
     headers: setHeaders(),
     body: JSON.stringify({
@@ -75,6 +72,7 @@ export function addFavorite(movie) {
       movieId: movie.id,
       nameRU: movie.nameRU,
       nameEN: movie.nameEN,
+      owner: movie.owner,
     }),
   });
 }
@@ -87,7 +85,7 @@ export function deleteFavorite(movie) {
 }
 
 export function getSavedMovies() {
-  return request(`/movies/`, {
+  return request("/movies", {
     method: "GET",
     headers: setHeaders(),
   });

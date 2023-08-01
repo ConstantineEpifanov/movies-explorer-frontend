@@ -4,8 +4,13 @@ import SearchForm from "../SearchForm/SearchForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import useResize from "../../hooks/useResize";
 
-function Movies({ movies, isErrorSearchMessage }) {
-  const [searchValue, setSearchValue] = useState({});
+function Movies({
+  movies,
+  isErrorSearchMessage,
+  handleMovieDelete,
+  handleMovieFavorite,
+  savedMovies,
+}) {
   const [isChecked, setChecked] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [isPreloader, setPreloader] = useState(false);
@@ -20,12 +25,6 @@ function Movies({ movies, isErrorSearchMessage }) {
   const size = useResize();
 
   useEffect(() => {
-    if (searchReq) {
-      setSearchValue(JSON.parse(searchReq));
-    }
-  }, [searchReq]);
-
-  useEffect(() => {
     if (moviesSearch) {
       setFilteredMovies(JSON.parse(moviesSearch));
     }
@@ -34,6 +33,12 @@ function Movies({ movies, isErrorSearchMessage }) {
   useEffect(() => {
     if (shortsCheck) {
       setChecked(JSON.parse(shortsCheck));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (searchReq) {
+      values.search = JSON.parse(searchReq)
     }
   }, []);
 
@@ -49,16 +54,17 @@ function Movies({ movies, isErrorSearchMessage }) {
     }
   }, [isChecked]);
 
-
   useEffect(() => {
     setMoviesAddCount(0);
   }, [filteredMovies]);
 
   function filterMovies() {
+    setPreloader(true);
     let filteredMoviesList = [];
     setNotFoundSearch(false);
 
-    if (values && isChecked) {
+
+    if (values.search && isChecked) {
       filteredMoviesList = movies.filter((movie) => {
         return (
           movie.duration <= 40 &&
@@ -69,10 +75,10 @@ function Movies({ movies, isErrorSearchMessage }) {
         );
       });
       localStorage.setItem("moviesSearch", JSON.stringify(filteredMoviesList));
-
+      localStorage.setItem("searchReq", JSON.stringify(values.search));
       setFilteredMovies(filteredMoviesList);
     }
-    if (values && !isChecked) {
+    if (values.search && !isChecked) {
       filteredMoviesList = movies.filter((movie) => {
         return movie.nameRU
           .toLowerCase()
@@ -80,14 +86,16 @@ function Movies({ movies, isErrorSearchMessage }) {
           .includes(values.search.toLowerCase());
       });
       localStorage.setItem("moviesSearch", JSON.stringify(filteredMoviesList));
-
+    localStorage.setItem("searchReq", JSON.stringify(values.search));
       setFilteredMovies(filteredMoviesList);
     }
 
     if (filteredMoviesList.length === 0) {
-      return setNotFoundSearch(true);
+      setNotFoundSearch(true);
     }
-    localStorage.setItem("searchReq", JSON.stringify(values.search));
+    setTimeout(() => {
+      setPreloader(false);
+    }, 1000);
   }
 
   const filmsStartQuantity = () => {
@@ -122,12 +130,15 @@ function Movies({ movies, isErrorSearchMessage }) {
       />
       <MoviesCardList
         filteredMovies={filteredMovies}
+        savedMovies={savedMovies}
         handleMoreClick={handleMoreClick}
         moviesAddCount={moviesAddCount}
         filmsStartQuantity={filmsStartQuantity}
         isPreloader={isPreloader}
         notFoundSearch={notFoundSearch}
         isErrorSearchMessage={isErrorSearchMessage}
+        handleMovieDelete={handleMovieDelete}
+        handleMovieFavorite={handleMovieFavorite}
       />
     </main>
   );
