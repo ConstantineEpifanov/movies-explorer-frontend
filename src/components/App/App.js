@@ -33,8 +33,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [isTokenChecked, setTokenChecked] = useState(false);
-  const [isPreloader, setPreloader] = useState(false);
+  const [isPreloader, setPreloader] = useState(true);
   const [isErrorSearchMessage, setErrorSearchMessage] = useState(false);
   const [savedMovies, setSavedMovies] = useState([]);
   const [movies, setMovies] = useState([]);
@@ -46,13 +45,11 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setPreloader(true);
       getUserInfo(token)
         .then((user) => {
           setLoggedIn(true);
           setCurrentUser(user);
           navigate(location.pathname, { replace: true });
-          setTokenChecked(true);
         })
         .catch((err) => {
           console.log(err);
@@ -60,7 +57,9 @@ function App() {
         });
     } else {
     }
-    setTokenChecked(true);
+    setTimeout(() => {
+      setPreloader(false);
+    }, 700);
   }, [loggedIn]);
 
   // Переадресация авторизованного
@@ -138,13 +137,15 @@ function App() {
 
   return (
     <div className="app">
-      {!isTokenChecked ? (
-        <Preloader isPreloader={isPreloader} />
+      {isPreloader ? (
+        <Preloader />
       ) : (
         <CurrentUserContext.Provider value={currentUser}>
           {location.pathname !== "/signin" &&
             location.pathname !== "/signup" &&
-            location.pathname !== "/404" && <Header location={location} />}
+            location.pathname !== "/404" && (
+              <Header location={location} loggedIn={loggedIn} />
+            )}
           <Routes>
             <Route path="/" element={<Main />} />
             <Route
@@ -208,7 +209,7 @@ function App() {
               }
             />
             <Route path="/404" element={<NotFound />} />
-            <Route path="*" element={<Navigate to="/404" />} />
+            <Route path="*" element={<Navigate to="/404" replace={true} />} />
           </Routes>
           {location.pathname !== "/signin" &&
             location.pathname !== "/signup" &&

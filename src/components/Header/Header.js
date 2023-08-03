@@ -3,7 +3,7 @@ import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 
-function Header({ location }) {
+function Header({ location, loggedIn }) {
   return (
     <header
       className={location.pathname === "/" ? "header header_main" : "header"}
@@ -11,7 +11,7 @@ function Header({ location }) {
       <Link className="header__link" to="/">
         <img src={logo} alt="Логотип $" className="header__logo link-hover" />
       </Link>
-      <Navigation />
+      <Navigation loggedIn={loggedIn} />
     </header>
   );
 }

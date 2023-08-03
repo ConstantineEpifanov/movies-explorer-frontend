@@ -3,6 +3,8 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import useResize from "../../hooks/useResize";
+import { LAPTOP_CARDS_QUANTITY, LAPTOP_MORE_CARDS_QUANTITY, MOBILE_CARDS_QUANTITY, SHORT_FILM_MAX_DURATION, TABLET_CARDS_QUANTITY, TABLET_MORE_CARDS_QUANTITY } from "../../utils/constants";
+
 
 function Movies({
   movies,
@@ -72,7 +74,7 @@ function Movies({
     if (values.search && isChecked) {
       filteredMoviesList = movies.filter((movie) => {
         return (
-          movie.duration <= 40 &&
+          movie.duration <= SHORT_FILM_MAX_DURATION &&
           movie.nameRU
             .toLowerCase()
             .trim()
@@ -106,11 +108,11 @@ function Movies({
 
   // Стартовое кол-во фильмов для отображения на разных разрешениях
   const filmsStartQuantity = () => {
-    return size.isScreenLarge ? 12 : size.isScreenMedium ? 8 : 5;
+    return size.isScreenLarge ? LAPTOP_CARDS_QUANTITY : size.isScreenMedium ? TABLET_CARDS_QUANTITY : MOBILE_CARDS_QUANTITY;
   };
   // Кнопка еще
   function handleMoreClick() {
-    setMoviesAddCount((prev) => prev + (size.isScreenLarge ? 3 : 2));
+    setMoviesAddCount((prev) => prev + (size.isScreenLarge ? LAPTOP_MORE_CARDS_QUANTITY : TABLET_MORE_CARDS_QUANTITY));
   }
 // Клик на кнопку поиска
   function handleSearch(evt) {

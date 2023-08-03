@@ -13,6 +13,14 @@ export const CONFLICT_ERROR = 409;
 export const INTERNAL_SERVER_ERROR = 500;
 export const T00_MANY_REQUESTS_ERROR = 429;
 
+export const LAPTOP_CARDS_QUANTITY = 12;
+export const TABLET_CARDS_QUANTITY = 8;
+export const MOBILE_CARDS_QUANTITY = 5;
+
+export const LAPTOP_MORE_CARDS_QUANTITY = 3;
+export const TABLET_MORE_CARDS_QUANTITY = 2;
+
+
 export const BAD_REQUEST_ERROR_MESSAGE = "Введены некорректные данные";
 export const AUTHORISATION_ERROR_MESSAGE = "Неверный логин или пароль";
 export const FORBIDDEN_ERROR_MESSAGE = "Доступ запрещен";
