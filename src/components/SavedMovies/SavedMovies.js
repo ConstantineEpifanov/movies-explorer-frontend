@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
+import { SHORT_FILM_MAX_DURATION } from "../../utils/constants";
 
 function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
   const [isChecked, setChecked] = useState(false);
@@ -58,7 +59,7 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
     if (values.search && isChecked) {
       filteredMoviesList = savedMovies.filter((movie) => {
         return (
-          movie.duration <= 40 &&
+          movie.duration <= SHORT_FILM_MAX_DURATION &&
           movie.nameRU
             .toLowerCase()
             .trim()
