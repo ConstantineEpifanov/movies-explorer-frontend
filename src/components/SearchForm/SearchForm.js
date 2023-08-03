@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import FilterCheckBox from "../FilterCheckbox/FilterCheckBox";
+import { useLocation } from "react-router-dom";
 
 function SearchForm({
   filterMovies,
@@ -11,9 +12,11 @@ function SearchForm({
   searchReq,
   handleShortsClick,
 }) {
+const location = useLocation()
+
   // Вставка данных
   useEffect(() => {
-    if (typeof searchReq === String || Number) {
+    if (location.pathname === "/movies" && (typeof searchReq === String || Number)) {
       values.search = JSON.parse(searchReq);
     }
   }, []);

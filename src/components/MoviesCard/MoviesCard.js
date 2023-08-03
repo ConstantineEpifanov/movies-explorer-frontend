@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { MINUTES_IN_HOUR } from "../../utils/constants";
 
 function MoviesCard({
   movie,
@@ -23,8 +24,8 @@ function MoviesCard({
   }
 
   function getDuration(duration) {
-    const hours = Math.floor(duration / 60);
-    const minutes = duration % 60;
+    const hours = Math.floor(duration / MINUTES_IN_HOUR);
+    const minutes = duration % MINUTES_IN_HOUR;
 
     return hours + "ч " + minutes + "м";
   }

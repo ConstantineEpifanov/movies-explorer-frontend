@@ -62,6 +62,7 @@ function Register({ setLoggedIn, isLoading, setIsLoading, setCurrentUser }) {
       questionText="Уже зарегистрированы?"
       linkText="Войти"
       link="/signin"
+      isLoading={isLoading}
     >
       <label className="forma__input-name" htmlFor="name">
         Имя

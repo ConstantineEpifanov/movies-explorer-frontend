@@ -11,30 +11,6 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
   const [notFoundSearch, setNotFoundSearch] = useState(false);
   const { values, handleChange, errors, isValid } = useFormWithValidation();
 
-  const savedMoviesSearch = localStorage.getItem("savedMoviesSearch");
-  const savedSearchReq = localStorage.getItem("savedSearchReq");
-  const savedShortsCheck = localStorage.getItem("savedShortsCheck");
-
-  useEffect(() => {
-    if (savedMoviesSearch) {
-      setFilteredSavedMovies(JSON.parse(savedMoviesSearch));
-    } else {
-      setFilteredSavedMovies(savedMovies);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (savedSearchReq) {
-      values.search = JSON.parse(savedSearchReq);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (savedShortsCheck) {
-      setChecked(JSON.parse(savedShortsCheck));
-    }
-  }, []);
-
   useEffect(() => {
     if (savedMovies.length !== 0 && isChecked) {
       filterSavedMovies();
@@ -52,9 +28,21 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
   }, [savedMovies]);
 
   function filterSavedMovies() {
-    setPreloader(true);
     let filteredMoviesList = [];
+
+    setPreloader(true);
     setNotFoundSearch(false);
+
+    if (values.search === undefined) {
+      setTimeout(() => {
+        setPreloader(false);
+      }, 500);
+
+      if (savedMovies.length === 0) return setNotFoundSearch(true);
+      else {
+        return setFilteredSavedMovies(savedMovies);
+      }
+    }
 
     if (values.search && isChecked) {
       filteredMoviesList = savedMovies.filter((movie) => {
@@ -66,13 +54,9 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
             .includes(values.search.toLowerCase())
         );
       });
-      localStorage.setItem(
-        "savedMoviesSearch",
-        JSON.stringify(filteredMoviesList)
-      );
-      localStorage.setItem("savedSearchReq", JSON.stringify(values.search));
       setFilteredSavedMovies(filteredMoviesList);
     }
+
     if (values.search && !isChecked) {
       filteredMoviesList = savedMovies.filter((movie) => {
         return movie.nameRU
@@ -80,17 +64,13 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
           .trim()
           .includes(values.search.toLowerCase());
       });
-      localStorage.setItem(
-        "savedMoviesSearch",
-        JSON.stringify(filteredMoviesList)
-      );
-      localStorage.setItem("savedSearchReq", JSON.stringify(values.search));
       setFilteredSavedMovies(filteredMoviesList);
     }
 
     if (filteredMoviesList.length === 0) {
       setNotFoundSearch(true);
     }
+
     setTimeout(() => {
       setPreloader(false);
     }, 500);
@@ -103,7 +83,6 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
 
   function handleShortsClick() {
     setChecked((isChecked) => !isChecked);
-    localStorage.setItem("savedShortsCheck", !isChecked);
   }
 
   return (
@@ -115,7 +94,6 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
         values={values}
         isValid={isValid}
         isChecked={isChecked}
-        searchReq={savedSearchReq}
         handleShortsClick={handleShortsClick}
       />
       <MoviesCardList

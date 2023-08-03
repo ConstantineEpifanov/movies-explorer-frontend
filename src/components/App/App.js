@@ -68,7 +68,7 @@ function App() {
       loggedIn &
       (location.pathname === "/signup" || location.pathname === "/signin")
     ) {
-      navigate("/movies", { replace: false });
+      navigate("/movies", { replace: true });
     }
   }, [loggedIn, navigate, location]);
 

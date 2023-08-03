@@ -11,6 +11,7 @@ function Forma({
   children,
   handleSubmit,
   isValid,
+  isLoading,
 }) {
   const location = useLocation();
 
@@ -36,11 +37,11 @@ function Forma({
             <button
               type="submit"
               className={
-                !isValid
+                isLoading || !isValid
                   ? "forma__button forma__button_disabled"
                   : "forma__button"
               }
-              disabled={!isValid}
+              disabled={isLoading || !isValid}
             >
               {submitButtonText}
             </button>

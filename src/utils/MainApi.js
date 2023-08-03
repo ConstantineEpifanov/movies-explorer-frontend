@@ -3,9 +3,8 @@ export function checkResponse(res) {
 }
 
 function request(url, options) {
-  return fetch(`http://localhost:3001${url}`, options).then(checkResponse);
+  return fetch(`https://api.movies.constantine.nomoredomains.rocks${url}`, options).then(checkResponse);
 }
-// https://api.movies.constantine.nomoredomains.rocks
 
 function setHeaders() {
   const token = localStorage.getItem("token");

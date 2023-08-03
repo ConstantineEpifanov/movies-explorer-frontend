@@ -30,20 +30,23 @@ function Profile({ handleLogout, setCurrentUser }) {
     }
   }, [values, currentUser]);
 
-
   // Сабмит формы профиля для обновления
   function handleSubmit(evt) {
     evt.preventDefault();
+    setDisabled(true);
 
     updateUserInfo({ name: values.name, email: values.email })
       .then((res) => {
-        setCurrentUser({ name: res.name, email: res.email });
+        setCurrentUser({ name: res.name, email: res.email, _id: res._id });
         setErrors({});
         alert("Данные изменены");
       })
       .catch((err) => {
         handleError(err);
         setValues(currentUser);
+      })
+      .finally(() => {
+        setDisabled(false);
       });
   }
 

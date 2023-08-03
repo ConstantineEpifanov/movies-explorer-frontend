@@ -32,7 +32,7 @@ function MoviesCardList({
   return (
     <section className="movies__cards">
       {isPreloader ? (
-        <Preloader isPreloader={isPreloader} />
+        <Preloader />
       ) : isErrorSearchMessage ? (
         <>
           <p>Во время запроса произошла ошибка.</p>
