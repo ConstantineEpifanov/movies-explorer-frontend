@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
-function Navigation() {
-  const location = useLocation();
+function Navigation({ loggedIn }) {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   function toggleMenu() {
@@ -95,7 +94,7 @@ function Navigation() {
     </nav>
   );
 
-  return location.pathname === "/" ? mainPage : loggenInPage;
+  return loggedIn ? loggenInPage :  mainPage ;
 }
 
 export default Navigation;

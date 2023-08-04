@@ -11,7 +11,7 @@ function NotFound() {
         <p className="not-found__subtitle">Страница не найдена</p>
         <button
           className="not-found__link link-hover"
-          onClick={() => navigate(-2)}
+          onClick={() => navigate(-1)}
           type="button"
         >
           Назад

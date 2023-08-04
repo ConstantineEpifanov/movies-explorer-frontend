@@ -27,19 +27,36 @@
 }
 
 .profile__list_active {
-  outline: 1px solid rgba(61, 220, 132, .8);;
+  outline: 1px solid rgba(61, 220, 132, .8);
+  ;
 }
 
 .profile__item {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin: 0;
-  padding-bottom: 16px;
+  padding-bottom: 6px;
   justify-content: space-between;
   border-bottom: 1px solid rgba(66, 66, 66, 1);
 }
 
 .profile__item:last-of-type {
+  border: none;
+}
+
+.profile__item-error {
+  width: 100%;
+  height: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  /* identical to box height */
+  text-align: right;
+  color: red;
+  background-color: transparent;
   border: none;
 }
 
@@ -71,7 +88,7 @@
 }
 
 .profile__item-text:focus {
-  background-color: #c1f0bf;
+  background-color: #0000001f;
   border-radius: 6px;
 }
 
@@ -94,10 +111,13 @@
   text-decoration: none;
 }
 
+.profile__button_disabled {
+  cursor: default;
+  color: rgba(114, 114, 114, .6);
+}
+
 .profile__button_active {
-  border-radius: 30px;
-  background-color: rgba(61, 220, 132, 1);
-  padding: 0 15px;
+  color: white;
 }
 
 .profile__button_warning-color {
