@@ -1,6 +1,7 @@
-# movies-explorer-frontend
-Интерфейс на «Реакте» дипломной работы ЯП
+# Movies-explorer-frontend
+Интерфейс дипломной работы ЯП на «Реакте» 
 
-Пул реквест - https://github.com/ConstantineEpifanov/movies-explorer-frontend/pull/7
-Проект на сервере - https://movies.constantine.nomoredomains.rocks/
-Макет Фигмы - https://disk.yandex.ru/d/9QXSYIhSnwNkeA
+Титульная страница об обучении на курсе Веб-разработчика и, после регистрации, сервис, в котором можно найти фильмы по запросу с Апи Яндекса и сохранить в личном кабинете.
+
+Весь проект на сервере - https://movies.constantine.nomoredomains.rocks/
+
