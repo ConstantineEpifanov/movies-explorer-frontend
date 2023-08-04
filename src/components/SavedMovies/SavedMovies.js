@@ -9,6 +9,7 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
   const [filteredSavedMovies, setFilteredSavedMovies] = useState([]);
   const [isPreloader, setPreloader] = useState(false);
   const [notFoundSearch, setNotFoundSearch] = useState(false);
+  const [isDisabledForm, setDisableForm] = useState(false);
   const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   useEffect(() => {
@@ -31,11 +32,13 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
     let filteredMoviesList = [];
 
     setPreloader(true);
+    setDisableForm(true);
     setNotFoundSearch(false);
 
-    if (values.search === undefined) {
+    if (values.search === undefined && !isChecked) {
       setTimeout(() => {
         setPreloader(false);
+        setDisableForm(false);
       }, 500);
 
       if (savedMovies.length === 0) return setNotFoundSearch(true);
@@ -57,6 +60,13 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
       setFilteredSavedMovies(filteredMoviesList);
     }
 
+    if (values.search === undefined && isChecked) {
+      filteredMoviesList = savedMovies.filter((movie) => {
+        return movie.duration <= SHORT_FILM_MAX_DURATION;
+      });
+      setFilteredSavedMovies(filteredMoviesList);
+    }
+
     if (values.search && !isChecked) {
       filteredMoviesList = savedMovies.filter((movie) => {
         return movie.nameRU
@@ -73,6 +83,7 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
 
     setTimeout(() => {
       setPreloader(false);
+      setDisableForm(false);
     }, 500);
   }
 
@@ -94,6 +105,7 @@ function SavedMovies({ savedMovies, handleMovieDelete, handleMovieFavorite }) {
         values={values}
         isValid={isValid}
         isChecked={isChecked}
+        isDisabledForm={isDisabledForm}
         handleShortsClick={handleShortsClick}
       />
       <MoviesCardList

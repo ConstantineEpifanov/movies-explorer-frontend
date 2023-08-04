@@ -11,12 +11,16 @@ function SearchForm({
   isChecked,
   searchReq,
   handleShortsClick,
+  isDisabledForm,
 }) {
-const location = useLocation()
+  const location = useLocation();
 
   // Вставка данных
   useEffect(() => {
-    if (location.pathname === "/movies" && (typeof searchReq === String || Number)) {
+    if (
+      location.pathname === "/movies" &&
+      (typeof searchReq === String || Number)
+    ) {
       values.search = JSON.parse(searchReq);
     }
   }, []);
@@ -41,9 +45,11 @@ const location = useLocation()
           <button
             type="submit"
             className={`search-form-bar__button ${
-              !isValid ? "search-form-bar__button_disabled" : "link-hover"
+              isDisabledForm || !isValid
+                ? "search-form-bar__button_disabled"
+                : "link-hover"
             }`}
-            disabled={!isValid}
+            disabled={isDisabledForm || !isValid}
           ></button>
           {errors.search && (
             <span className="search-form-bar__error">

@@ -18,6 +18,7 @@ function Movies({
   const [isPreloader, setPreloader] = useState(false);
   const [moviesAddCount, setMoviesAddCount] = useState(0);
   const [notFoundSearch, setNotFoundSearch] = useState(false);
+  const [isDisabledForm, setDisableForm] = useState(false);
   const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   const moviesSearch = localStorage.getItem("moviesSearch");
@@ -67,6 +68,7 @@ function Movies({
 // Фильтр-поиск фильмов из локалки
   function filterMovies() {
     setPreloader(true);
+    setDisableForm(true);
     let filteredMoviesList = [];
     setNotFoundSearch(false);
 
@@ -102,6 +104,7 @@ function Movies({
     }
     setTimeout(() => {
       setPreloader(false);
+      setDisableForm(false);
     }, 1000);
   }
 
@@ -135,6 +138,7 @@ function Movies({
         isValid={isValid}
         isChecked={isChecked}
         searchReq={searchReq}
+        isDisabledForm={isDisabledForm}
         handleShortsClick={handleShortsClick}
       />
       <MoviesCardList
